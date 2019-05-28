@@ -1,0 +1,21 @@
+article {
+
+        }
+
+ .red {
+    color: red;
+ }
+
+ .blue {
+    color: blue;
+ }
+
+ .grey-article {
+    color: white;
+    background-color: grey;
+    font-size: 40px;
+ }
+
+ .big{
+    font-size: 60px;
+ }
