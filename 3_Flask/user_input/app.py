@@ -18,7 +18,7 @@ def search_stock():
 @app.route('/search_result')
 def result():
     user_input = request.args.get('keyword')
-    TOKEN = 'pk_c099e22e063e4cabbcd9f995dcf4edc5'
+    TOKEN = 'iexcloud.io에서 받은 token 작성'
 
     try:
         stock = Stock(user_input, token=TOKEN)
