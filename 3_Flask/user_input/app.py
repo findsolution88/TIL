@@ -21,8 +21,8 @@ def result():
     TOKEN = 'iexcloud.io에서 받은 token 작성'
 
     try:
-        stock = Stock(user_input, token=TOKEN)
-        data = stock.get_quote()
+        stock = Stock(user_input, token=TOKEN) # 검색어가 없을 경우 except로 이동
+        data = stock.get_quote() #올바르지 않은 company code가 아닐 경우 except로 이동
     except:
         return render_template(
             'search_stock.html',
