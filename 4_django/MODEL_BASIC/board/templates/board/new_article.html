@@ -2,7 +2,8 @@
 
 {% block body %}
 <h1>New Article</h1>
-<form action="/board/create/" method="get">
+<form action="/board/create/" method="POST">
+    {% csrf_token %}
     <div>
         <label for="title">제목</label>
         <input id="title" type="text" name="title">

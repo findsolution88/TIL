@@ -7,13 +7,16 @@ def new_article(request):
 
 # SAVE article
 def create_article(request):
-    article = Article()
+    if request.method == 'POST':
+        article = Article()
 
-    article.title = request.GET.get('title')
-    article.content = request.GET.get('content')
+        article.title = request.POST.get('title')
+        article.content = request.POST.get('content')
 
-    article.save()
-    return redirect(f'/board/{article.id}')
+        article.save()
+        return redirect(f'/board/{article.id}')
+    else:
+        return redirect('/board/new')
 
 # read all
 def article_list(request): # 전체 article 조회하기
@@ -30,7 +33,25 @@ def article_detail(request, article_id): # 특정 article 조회하기
     })
 
 
-# todo: Update
+# Update
+def edit_article(request,article_id):
+    article = Article.objects.get(id=article_id)
+    return render(request, 'board/edit_article.html', {
+        'article': article,
+    })
+
+def update_article(request, article_id):
+    if request.method == 'POST':
+        article = Article.objects.get(id=article_id)
+
+        article.title = request.POST.get('title')
+        article.content = request.POST.get('content')
+
+        article.save()
+        return redirect(f'/board/{article.id}')
+
+    else:
+        return redirect(f'/board/{article_id}/edit/')
 
 
 # Delete
