@@ -1,5 +1,5 @@
 """
-WSGI config for model_basic project.
+WSGI config for board project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'model_basic.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'board.settings')
 
 application = get_wsgi_application()
